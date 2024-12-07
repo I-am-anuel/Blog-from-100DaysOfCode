@@ -173,6 +173,7 @@ def get_all_posts():
 @app.route("/post/<int:post_id>", methods=['GET', 'POST'])
 def show_post(post_id):
     comment = CommentForm()
+    post = post_id
     gravatar = Gravatar(app,
                         size=100,
                         rating='g',
@@ -197,6 +198,7 @@ def show_post(post_id):
             )
             db.session.add(new_comment)
             db.session.commit()
+            return redirect(url_for("show_post", post_id=post))
         else:
             global ERROR
             ERROR = "To make comments, you must login first."
