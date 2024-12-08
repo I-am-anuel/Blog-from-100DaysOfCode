@@ -1,5 +1,5 @@
-import os
-from dotenv import load_dotenv
+# import os
+# from dotenv import load_dotenv
 
 from datetime import date
 from typing import List
@@ -21,9 +21,12 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 
 ERROR = None
 
-load_dotenv(dotenv_path=".env")
-SECRET_KEY = os.environ.get("SECRET_KEY")
-SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
+# load_dotenv(dotenv_path=".env")
+# SECRET_KEY = os.environ.get("SECRET_KEY")
+# SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
+
+SECRET_KEY = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"
+SQLALCHEMY_DATABASE_URI = "sqlite:///posts.db"
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
